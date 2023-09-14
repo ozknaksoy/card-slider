@@ -1,6 +1,7 @@
-import {UI} from "./ui.js";
+import { UI } from "./ui.js";
+import { Profile } from "./profile.js";
 
-const ui = new UI();
+// const profile = new Profile();
 
 
 
@@ -15,31 +16,31 @@ const firstCardWidth = carousel.querySelector(".card").offsetWidth;
 
 
 
-function addPersonUI (e){
-    
+function addPersonUI(e) {
+    e.preventDefault();
+
     const title = titleElement.value;
     const name = nameElement.value;
     const url = urlElement.value;
-    
-    if( title === "" || name === "" || url === "" ){
-        
+
+    if (title === "" || name === "" || url === "") {
         alert("Tüm alanları doldurun..");
-        
-    }else { 
-        carousel.innerHTML += 
-        `
-        <li class="card">
-        <div class="img"><img src="${url}" alt="img" draggable="false"></div>
-        <h2>${name}</h2>
-        <span>${title}</span       
-        </li>        `    
+
+    } else {
+        debugger;
+
+        const newProfile = new Profile(title, name, url);
+        const ui = new UI(title, name, url);
+
+        // console.log(newProfile.data);
+        // console.log(ui.render())
+        ui.render(newProfile);    
+
     };
-    e.preventDefault();
 }
 
 let isDrag = false, startX, startScrollLeft;
 
-//Add event listeners for the arrow buttons to scroll the carousel left and right
 lrBtns.forEach(btn => {
     btn.addEventListener("click", () => {
         carousel.scrollLeft += btn.id === "left" ? -firstCardWidth : firstCardWidth;
@@ -47,7 +48,7 @@ lrBtns.forEach(btn => {
 });
 
 const dragStart = (e) => {
-    
+
     isDrag = true;
     carousel.classList.add("drag");
     // Records the initial cursor and scroll position of the carousel
@@ -58,7 +59,7 @@ const dragStart = (e) => {
 const drag = (e) => {
     if (!isDrag) return;
     carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
-    
+
 }
 
 const dragStop = () => {
