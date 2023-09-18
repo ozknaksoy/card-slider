@@ -1,5 +1,11 @@
 import { UI } from "./ui.js";
-import { Profile } from "./profile.js";
+// import { Profile } from "./profile.js";
+import { Request } from './request.js';
+
+
+
+const request = new Request();
+const ui = new UI();
 
 // const profile = new Profile();
 
@@ -15,6 +21,17 @@ const lrBtns = document.querySelectorAll(".wrapper i");
 const firstCardWidth = carousel.querySelector(".card").offsetWidth;
 
 
+// function addProfileJson() {
+
+//     request.post('http://localhost:3000/addJSON', {
+//         "title": titleElement.value,
+//         "name": nameElement.value,
+//         "url": urlElement.value
+//     });
+
+
+// }
+
 
 function addPersonUI(e) {
     e.preventDefault();
@@ -28,16 +45,23 @@ function addPersonUI(e) {
 
     } else {
         debugger;
-
-        const newProfile = new Profile(title, name, url);
-        const ui = new UI(title, name, url);
-
-        // console.log(newProfile.data);
-        // console.log(ui.render())
-        ui.render(newProfile);    
+        request.post('http://localhost:3000/addJSON', {
+            "title": titleElement.value,
+            "name": nameElement.value,
+            "url": urlElement.value
+        });
+        
+        request.get('http://localhost:3000/addJSON').then((profiles) => {
+            ui.render(profiles);
+        })
 
     };
 }
+// function getAddProfile() {
+//     request.get('http://localhost:3000/addJSON').then((profiles) => {
+//         ui.render(profiles);
+//     })
+// }
 
 let isDrag = false, startX, startScrollLeft;
 

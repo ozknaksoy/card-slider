@@ -6,15 +6,20 @@ export class UI {
         this.url = url;
     }
 
-    render (){
+    render(profiles) {
         const carousel = document.querySelector(".carousel");
-        carousel.innerHTML += 
-        `
-        <li class="card">
-        <div class="img"><img src="${this.url}" alt="img" draggable="false"></div>
-        <h2>${this.name}</h2>
-        <span>${this.title}</span       
-        </li>        `   
+        carousel.innerHTML = ""
+        profiles.forEach(profile => {
+
+            carousel.innerHTML +=
+                `
+            <li class="card">
+            <div class="img"><img src="${profile.url}" alt="img" draggable="false"></div>
+            <h2>${profile.name}</h2>
+            <span>${profile.title}</span       
+            </li>        `
+
+        });
 
     };
 
