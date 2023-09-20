@@ -4,7 +4,7 @@ import { Request } from './request.js';
 
 
 
-const request = new Request();
+const request = new Request(); 
 const ui = new UI();
 
 // const profile = new Profile();
@@ -40,19 +40,19 @@ function addPersonUI(e) {
     const name = nameElement.value;
     const url = urlElement.value;
 
-    if (title === "" || name === "" || url === "") {
+    if (title === "" || name === "" || url === "") {    
         alert("Tüm alanları doldurun..");
 
     } else {
-        debugger;
+      console.log();
         request.post('http://localhost:3000/addJSON', {
             "title": titleElement.value,
             "name": nameElement.value,
             "url": urlElement.value
         });
-        
-        request.get('http://localhost:3000/addJSON').then((profiles) => {
-            ui.render(profiles);
+     
+        request.get('http://localhost:3000/addJSON').then((profile) => {
+            ui.render(profile);
         })
 
     };
