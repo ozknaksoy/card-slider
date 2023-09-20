@@ -8,7 +8,7 @@ export class UI {
 
     render(profiles) {
         const carousel = document.querySelector(".carousel");
-        carousel.innerHTML = ""
+        
         profiles.forEach(profile => {
 
             carousel.innerHTML +=

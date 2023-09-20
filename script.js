@@ -3,8 +3,10 @@ import { UI } from "./ui.js";
 import { Request } from './request.js';
 
 
+// npx json-server --watch add.json
 
-const request = new Request(); 
+
+const request = new Request();
 const ui = new UI();
 
 // const profile = new Profile();
@@ -16,7 +18,7 @@ const nameElement = document.querySelector("#name");
 const urlElement = document.querySelector("#url");
 const addPerson = document.querySelector("#addPerson")
 
-const carousel = document.querySelector(".carousel");
+const carousel = document.getElementById("carousel");
 const lrBtns = document.querySelectorAll(".wrapper i");
 const firstCardWidth = carousel.querySelector(".card").offsetWidth;
 
@@ -33,29 +35,29 @@ const firstCardWidth = carousel.querySelector(".card").offsetWidth;
 // }
 
 
-function addPersonUI(e) {
+async function addPersonUI(e) {
     e.preventDefault();
-
     const title = titleElement.value;
     const name = nameElement.value;
     const url = urlElement.value;
-
-    if (title === "" || name === "" || url === "") {    
+    
+    if (title === "" || name === "" || url === "") {
         alert("Tüm alanları doldurun..");
-
+        
     } else {
-      console.log();
+        console.log("ekliyo")
         request.post('http://localhost:3000/addJSON', {
-            "title": titleElement.value,
-            "name": nameElement.value,
-            "url": urlElement.value
+            "title": title,
+            "name": name,
+            "url": url
         });
-     
-        request.get('http://localhost:3000/addJSON').then((profile) => {
-            ui.render(profile);
-        })
+        console.log("alıyo")
+        const data = await request.get('http://localhost:3000/addJSON')
+        console.log(data);
+        ui.render(data);
 
     };
+    
 }
 // function getAddProfile() {
 //     request.get('http://localhost:3000/addJSON').then((profiles) => {
