@@ -1,40 +1,28 @@
 {
   "addJSON": [
     {
-      "title": "asdads",
-      "name": "asdads",
-      "url": "asdad",
+      "title": "asd",
+      "name": "asd",
+      "url": "https://www.lemcronache.it/wordpress/wp-content/uploads/2019/02/film-batman-ordine-3.jpg",
       "id": 1
     },
     {
-      "title": "aa",
-      "name": "saaa",
-      "url": "dds",
+      "title": "asd",
+      "name": "ds",
+      "url": "https://www.lemcronache.it/wordpress/wp-content/uploads/2019/02/film-batman-ordine-3.jpg",
       "id": 2
     },
     {
-      "title": "dasdas",
-      "name": "adasdaas",
-      "url": "asdaasd",
+      "title": "ASD",
+      "name": "ASD",
+      "url": "https://www.lemcronache.it/wordpress/wp-content/uploads/2019/02/film-batman-ordine-3.jpg",
       "id": 3
     },
     {
       "title": "sd",
-      "name": "sda",
-      "url": "asda",
+      "name": "asda",
+      "url": "https://www.lemcronache.it/wordpress/wp-content/uploads/2019/02/film-batman-ordine-3.jpg",
       "id": 4
-    },
-    {
-      "title": "ads",
-      "name": "as",
-      "url": "asd",
-      "id": 5
-    },
-    {
-      "title": "sad",
-      "name": "sasd",
-      "url": "sdada",
-      "id": 6
     }
   ]
 }

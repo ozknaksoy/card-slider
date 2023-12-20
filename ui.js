@@ -1,9 +1,7 @@
 export class UI {
 
-    constructor(title, name, url) {
-        this.title = title;
-        this.name = name;
-        this.url = url;
+    constructor() {
+    
     }
 
     render(profiles) {

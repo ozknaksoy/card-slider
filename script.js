@@ -29,23 +29,26 @@ function addPersonUI(e) {
     const title = titleElement.value;
     const name = nameElement.value;
     const url = urlElement.value;
-    
+
     if (title === "" || name === "" || url === "") {
         alert("Tüm alanları doldurun..");
-        
+
     } else {
-        console.log("ekliyo")
         request.post('http://localhost:3000/addJSON', {
             "title": title,
             "name": name,
             "url": url
         });
-        console.log("alıyo")
-        const data = request.get('http://localhost:3000/addJSON')
-        console.log(data);
-        ui.render(data);
+
+        request.get('http://localhost:3000/addJSON')
+            .then(res => {
+                console.log(res);
+                ui.render(res);
+            })
+            .catch(console.error);
 
     };
-    
+
 }
+
 mouse.move()
